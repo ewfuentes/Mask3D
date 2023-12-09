@@ -31,6 +31,7 @@ RUN git checkout 3e5726500896748521a6ceb81271b0f5b2c0e7d2
 RUN make
 
 WORKDIR /
+ADD "https://api.github.com/repos/ewfuentes/Mask3D/commits?per_page=1" latest_commit
 RUN git clone "https://github.com/ewfuentes/Mask3D.git"
 WORKDIR /Mask3D/third_party/pointnet2
 RUN pip install . 

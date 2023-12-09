@@ -35,7 +35,7 @@ RUN pip install .
 WORKDIR /Mask3D/checkpoints
 RUN wget https://omnomnom.vision.rwth-aachen.de/data/mask3d/checkpoints/scannet/scannet_benchmark.ckpt
 WORKDIR /Mask3D
-RUN pip3 install .
+RUN pip3 install -e .
 WORKDIR /host/final_project
 RUN pip3 install hydra-core==1.0.5 loguru==0.6.0 albumentations==1.2.1 open3d==0.17.0
 RUN apt install -y libgl1-mesa-glx

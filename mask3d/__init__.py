@@ -182,21 +182,21 @@ def map_output_to_pointcloud(mesh,
     mesh_labelled.vertices = mesh.vertices
     mesh_labelled.triangles = mesh.triangles
 
-    labels_mapped = np.zeros((len(mesh.vertices), 1))
+    class_labels_mapped = np.zeros((len(mesh.vertices), 1))
+    instance_labels_mapped = np.ones((len(mesh.vertices), 1)) * -1
 
-    for i, (l, c, m) in enumerate(
-        sorted(zip(labels, confidences, masks_binary), reverse=False, key=itemgetter(0, 1))):
-        
+    for i, (l, c, m, instance_id) in enumerate(
+        sorted(zip(labels, confidences, masks_binary, list(range(len(labels)))), reverse=False, key=itemgetter(0, 1))):
         if label_space == 'scannet200':
             label_offset = 2
             if l == 0:
                 l = -1 + label_offset
             else:
                 l = int(l) + label_offset
-                        
-        labels_mapped[m == 1] = l
+        class_labels_mapped[m == 1] = l
+        instance_labels_mapped[m == 1] = instance_id + 1
         
-    return labels_mapped
+    return class_labels_mapped, instance_labels_mapped
 
 def save_colorized_mesh(mesh, labels_mapped, output_file, colormap='scannet'):
     

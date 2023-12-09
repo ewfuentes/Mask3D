@@ -36,6 +36,6 @@ WORKDIR /Mask3D/third_party/pointnet2
 RUN pip install . 
 
 WORKDIR /Mask3D
-RUN pip3 install .
+RUN pip3 install -e .
 WORKDIR /host/final_project
 

@@ -1,5 +1,6 @@
 import hydra
 import torch
+from operator import itemgetter
 
 from mask3d.models.mask3d import Mask3D
 from mask3d.utils.utils import (
@@ -184,7 +185,7 @@ def map_output_to_pointcloud(mesh,
     labels_mapped = np.zeros((len(mesh.vertices), 1))
 
     for i, (l, c, m) in enumerate(
-        sorted(zip(labels, confidences, masks_binary), reverse=False)):
+        sorted(zip(labels, confidences, masks_binary), reverse=False, key=itemgetter(0, 1))):
         
         if label_space == 'scannet200':
             label_offset = 2

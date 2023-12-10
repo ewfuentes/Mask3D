@@ -45,8 +45,8 @@ from scipy import stats
 # currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 # parentdir = os.path.dirname(currentdir)
 # sys.path.insert(0,parentdir)
-import benchmark.util as util
-import benchmark.util_3d as util_3d
+import mask3d.benchmark.util as util
+import mask3d.benchmark.util_3d as util_3d
 
 # parser = argparse.ArgumentParser()
 # parser.add_argument('--gt_path', default='', help='path to directory of gt .txt files')

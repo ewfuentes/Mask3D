@@ -30,7 +30,7 @@ WORKDIR /app/third_party/ScanNet/Segmentator
 RUN git checkout 3e5726500896748521a6ceb81271b0f5b2c0e7d2
 RUN make
 
-RUN pip install pytorch-lightning python-dotenv pyviz3d
+RUN pip install pytorch-lightning python-dotenv pyviz3d plyfile
 WORKDIR /
 ADD "https://api.github.com/repos/ewfuentes/Mask3D/commits?per_page=1" latest_commit
 RUN git clone "https://github.com/ewfuentes/Mask3D.git"

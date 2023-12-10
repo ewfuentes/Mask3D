@@ -14,7 +14,7 @@ except:
     print("pip install plyfile")
     sys.exit(-1)
 
-import benchmark.util as util
+import mask3d.benchmark.util as util
 
 
 # matrix: 4x4 np array

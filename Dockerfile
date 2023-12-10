@@ -36,7 +36,10 @@ RUN git clone "https://github.com/ewfuentes/Mask3D.git"
 WORKDIR /Mask3D/third_party/pointnet2
 RUN pip install . 
 
+RUN pip install pytorch-lightning python-dotenv
+
 WORKDIR /Mask3D
 RUN pip3 install -e .
 WORKDIR /host/final_project
+
 

@@ -8,7 +8,7 @@ RUN apt update && \
 
 RUN pip3 install torch==1.12.1+cu113 torchvision==0.13.1+cu113 --extra-index-url https://download.pytorch.org/whl/cu113
 RUN pip3 install torch-scatter -f https://data.pyg.org/whl/torch-1.12.1+cu113.html
-RUN pip3 install 'git+https://github.com/facebookresearch/detectron2.git@710e7795d0eeadf9def0e7ef957eea13532e34cf' --no-deps
+RUN pip3 install 'git+https://github.com/facebookresearch/detectron2.git@710e7795d0eeadf9def0e7ef957eea13532e34cf'
 
 
 RUN pip3 install hydra-core==1.0.5 loguru==0.6.0 albumentations==1.2.1 open3d==0.13.0
@@ -30,7 +30,8 @@ WORKDIR /app/third_party/ScanNet/Segmentator
 RUN git checkout 3e5726500896748521a6ceb81271b0f5b2c0e7d2
 RUN make
 
-RUN pip install pytorch-lightning python-dotenv pyviz3d plyfile
+RUN pip install pytorch-lightning==1.7.2 torchmetrics==0.11.4 python-dotenv pyviz3d \
+	plyfile trimesh Pillow==9.5.0 volumentations fire natsort
 WORKDIR /
 ADD "https://api.github.com/repos/ewfuentes/Mask3D/commits?per_page=1" latest_commit
 RUN git clone "https://github.com/ewfuentes/Mask3D.git"

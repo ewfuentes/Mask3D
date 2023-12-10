@@ -31,7 +31,7 @@ RUN git checkout 3e5726500896748521a6ceb81271b0f5b2c0e7d2
 RUN make
 
 RUN pip install pytorch-lightning==1.7.2 torchmetrics==0.11.4 python-dotenv pyviz3d \
-	plyfile trimesh Pillow==9.5.0 volumentations fire natsort
+	plyfile trimesh Pillow==9.5.0 volumentations fire natsort pyyaml==5.4.1
 WORKDIR /
 ADD "https://api.github.com/repos/ewfuentes/Mask3D/commits?per_page=1" latest_commit
 RUN git clone "https://github.com/ewfuentes/Mask3D.git"

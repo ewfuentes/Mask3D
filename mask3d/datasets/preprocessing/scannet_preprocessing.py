@@ -140,7 +140,7 @@ class ScannetPreprocessing(BasePreprocessing):
         filebase["file_len"] = file_len
         points = np.hstack((coords, features))
 
-        if mode in ["train", "validation"]:
+        if mode in ["train", "validation", "vnav"]:
             # getting scene information
             description_filepath = Path(
                 filepath

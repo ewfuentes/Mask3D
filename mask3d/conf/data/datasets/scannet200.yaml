@@ -35,7 +35,7 @@ train_dataset:
 validation_dataset:
   _target_: mask3d.datasets.semseg.SemanticSegmentationDataset
   dataset_name: "scannet200"
-  data_dir: /home/weders/scratch/scratch/scannetter/arkit/raw/
+  data_dir: /host/final_project/videos/scannet/processed_scans/
   image_augmentations_path: null
   volume_augmentations_path: null
   # label_db_filepath: data/processed/scannet200/label_database.yaml

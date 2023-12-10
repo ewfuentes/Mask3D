@@ -214,10 +214,10 @@ class SemanticSegmentationDataset(Dataset):
             self._data = sample(
                 self._data, int(len(self._data) * data_percent)
             )
-        # labels = self._load_yaml(Path(label_db_filepath))
+        labels = self._load_yaml(Path(label_db_filepath))
 
         # if working only on classes for validation - discard others
-        # self._labels = self._select_correct_labels(labels, num_labels)
+        self._labels = self._select_correct_labels(labels, num_labels)
 
         if instance_oversampling > 0:
             self.instance_data = self._load_yaml(

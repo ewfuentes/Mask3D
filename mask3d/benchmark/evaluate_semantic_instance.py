@@ -466,6 +466,7 @@ def evaluate(
     global ID_TO_LABEL
     global LABEL_TO_ID
     global opt
+    print(f'Calling evaluate with gt_path: {gt_path}, {dataset}, {output_file}')
 
     if dataset == "stpls3d":
         # global CLASS_LABELS

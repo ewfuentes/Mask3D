@@ -30,14 +30,20 @@ WORKDIR /app/third_party/ScanNet/Segmentator
 RUN git checkout 3e5726500896748521a6ceb81271b0f5b2c0e7d2
 RUN make
 
-RUN pip install pytorch-lightning==1.7.2 torchmetrics==0.11.4 python-dotenv pyviz3d \
+RUN apt install -y python2
+RUN wget https://bootstrap.pypa.io/pip/2.7/get-pip.py && \
+	python2 get-pip.py && \
+	rm get-pip.py
+
+RUN pip2.7 install numpy imageio==2.6.1 plyfile==0.7.3
+
+RUN pip3 install pytorch-lightning==1.7.2 torchmetrics==0.11.4 python-dotenv pyviz3d \
 	plyfile trimesh Pillow==9.5.0 volumentations fire natsort pyyaml==5.4.1
 WORKDIR /
 ADD "https://api.github.com/repos/ewfuentes/Mask3D/commits?per_page=1" latest_commit
 RUN git clone "https://github.com/ewfuentes/Mask3D.git"
 WORKDIR /Mask3D/third_party/pointnet2
-RUN pip install . 
-
+RUN pip3 install . 
 
 WORKDIR /Mask3D
 RUN pip3 install -e .

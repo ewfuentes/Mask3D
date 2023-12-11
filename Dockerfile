@@ -38,7 +38,7 @@ RUN wget https://bootstrap.pypa.io/pip/2.7/get-pip.py && \
 RUN pip2.7 install numpy imageio==2.6.1 plyfile==0.7.3
 
 RUN pip3 install pytorch-lightning==1.7.2 torchmetrics==0.11.4 python-dotenv pyviz3d \
-	plyfile trimesh Pillow==9.5.0 volumentations fire natsort pyyaml==5.4.1
+	plyfile trimesh Pillow==9.5.0 volumentations fire natsort pyyaml==5.4.1 pypng
 WORKDIR /
 ADD "https://api.github.com/repos/ewfuentes/Mask3D/commits?per_page=1" latest_commit
 RUN git clone "https://github.com/ewfuentes/Mask3D.git"

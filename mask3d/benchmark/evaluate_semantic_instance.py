@@ -461,6 +461,8 @@ def write_result_file(avgs, filename):
 def evaluate(
     preds: dict, gt_path: str, output_file: str, dataset: str = "scannet"
 ):
+    import ipdb
+    ipdb.set_trace()
     global CLASS_LABELS
     global VALID_CLASS_IDS
     global ID_TO_LABEL

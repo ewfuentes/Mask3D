@@ -29,6 +29,7 @@ import random
 import colorsys
 from typing import List, Tuple
 import functools
+import ipdb
 
 
 
@@ -978,7 +979,6 @@ class InstanceSegmentation(pl.LightningModule):
                         self.decoder_id,
                     )
                 else:
-                    import ipdb
                     ipdb.set_trace()
                     self.export(
                         self.preds[file_names[bid]]["pred_masks"],
@@ -1231,6 +1231,7 @@ class InstanceSegmentation(pl.LightningModule):
         self.bbox_gt = dict()
 
     def test_epoch_end(self, outputs):
+        ipdb.set_trace()
         if self.config.general.export:
             return
 

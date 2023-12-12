@@ -31,6 +31,7 @@ from typing import List, Tuple
 import functools
 
 
+
 @functools.lru_cache(20)
 def get_evenly_distributed_colors(
     count: int,
@@ -532,6 +533,8 @@ class InstanceSegmentation(pl.LightningModule):
                 / (pca_features.max() - pca_features.min())
             )
 
+        import ipdb
+        ipdb.set_trace()
         self.eval_instance_step(
             output,
             target,

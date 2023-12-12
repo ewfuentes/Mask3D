@@ -978,6 +978,8 @@ class InstanceSegmentation(pl.LightningModule):
                         self.decoder_id,
                     )
                 else:
+                    import ipdb
+                    ipdb.set_trace()
                     self.export(
                         self.preds[file_names[bid]]["pred_masks"],
                         self.preds[file_names[bid]]["pred_scores"],

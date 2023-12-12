@@ -97,8 +97,6 @@ def test(cfg: DictConfig):
         weights_save_path=str(cfg.general.save_dir),
         **cfg.trainer,
     )
-    import ipdb
-    ipdb.set_trace()
     runner.test(model)
 
 

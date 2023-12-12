@@ -533,8 +533,6 @@ class InstanceSegmentation(pl.LightningModule):
                 / (pca_features.max() - pca_features.min())
             )
 
-        import ipdb
-        ipdb.set_trace()
         self.eval_instance_step(
             output,
             target,
@@ -989,6 +987,8 @@ class InstanceSegmentation(pl.LightningModule):
                     )
 
     def eval_instance_epoch_end(self):
+        import ipdb
+        ipdb.set_trace()
         log_prefix = f"val"
         ap_results = {}
 
